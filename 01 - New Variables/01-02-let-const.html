@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 1 - 02 - let and const</title>
+</head>
+
+<body>
+	<script>
+		// let can be updated, but not redefined.
+		// Whereas var can be updated AND redefined.
+		let points = 50;
+		let winner = false;
+		
+		//let points = 60; // console error: points has already been declared.
+		points = 70; // this is fine, and you can update, but just not redefine.
+		
+		if ( points > 40 ) {
+			let winner = true; // this is block scoped, therefore unique from the previously declared winner.
+		}
+		
+		// const can NOT be updated, or redefined.
+		const key = 'abc123';
+		
+		//key = "def456"; // console error: Assignment to constant variable is not allowed.
+		
+		// const is NOT immuntable, and the properties of its object can be updated...
+		const person = {
+			name: 'William Burroughs',
+			age: '68'
+		}
+		
+		//person = { name: 'Allen Ginsberg' } // console error: Assignment to constant variable not allowed.
+		
+		// And we CAN update the properties on a const object...
+		person.name = 'Jack Kerouac';
+		console.log( person );
+		
+		// Should you want to avoid the properties being updated you can...
+		// use Object.freeze()
+		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+		const williamLee = Object.freeze( person );
+		
+		williamLee.age = 83;
+		
+		console.log( williamLee.age ); // returns 68, because the const person() is froze.
+
+	</script>
+</body>
+</html>

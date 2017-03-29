@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 1 - 04 - the Temporal Dead Zone</title>
+</head>
+<body>
+	
+	<script>
+		// What happens if we try to access the var pizza before it is defined?
+		console.log( pizza ); // console: undefined
+		var pizza = 'Deep Dish 🍕🍕🍕';
+		
+		// if we change to const or let
+		console.log( juice ); // Console error: juice is not defined
+		// We can not access the variable before it is defined, aka the Temporal Dead Zone
+		const juice = 'Apple 🍎';
+	</script>
+
+</body>
+</html>

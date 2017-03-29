@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 1 - 01 - var overview 2 (scoping) </title>
+</head>
+
+<body>
+	<script>
+		// var are function scoped, or in this case globally scoped
+		var width = 100;
+		
+		function setHeight() {
+			var height = 200;
+			console.log( height );
+		}
+		
+		setHeight(); // Console: 200
+		
+		// Since height is scoped to setHeight function...
+		//console.log( height ); // Console: height is not defined.
+		
+		
+		// Example of how var can leak to the global scope, because
+		// ONLY function scoped...
+		var age = 100;
+		
+		if ( age > 12 ) {
+			var dogYears = age * 7;
+			console.log( `Your are ${dogYears} dog years old!`);
+		}
+		
+		console.log( dogYears ); // 700, because the if statement is not a function.
+		
+		// If we changed line 29 to:
+		//     let dogYears = age * 7;
+		// or
+		//     const dogYears = age *7;
+		// Then line 33 would return not defined, because let and const are block scoped,
+		// whereas var is function scoped.
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 1 - 03 - let and const real world</title>
+</head>
+<body>
+
+	<script>
+		// http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+		// Immediately-Invoked Function Expression (IIFE)
+		// (Good way to prevent the var from leaking into the global scope)
+		// Example IIFE:
+		( function() {
+			var name = 'Max';
+			console.log( name );
+		} )();
+		
+		// Now with let and const since they're block scoped we can just do this:
+		{
+			const name = 'Jesse';
+			console.log( name );
+		}
+		// Either way we're keeping the global scope clean and preventing leaking.
+		
+		// This becomes problematic with var, because the setTimeout runs after the for loop has finished
+		// therefore i has lost its reference point.
+		for ( var i = 0; i < 10; i++ ) {
+			console.log( i );
+			
+			setTimeout( function() {
+				console.log( 'The number is ' + i );
+			}, 1000 );
+		}
+		
+		// We switch to using let, and we're golden!
+		for ( let i = 0; i < 10; i++ ) {
+			console.log( i );
+			
+			setTimeout( function() {
+				console.log( 'The number is ' + i );
+			}, 1000 );
+		}
+		
+		// Note: we can't use const in this ^^ scenario, because it'd try to redefine itself, which const
+		// doesn't allow.
+	</script>
+
+</body>
+</html>
