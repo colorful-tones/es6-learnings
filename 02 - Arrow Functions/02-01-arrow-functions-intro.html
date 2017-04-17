@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 2 - 01 - Arrow functions Intro</title>
+</head>
+<body>
+	<h1>3 main benefits of Arrow functions</h1>
+	<ul>
+		<li>More concise</li>
+		<li>Implicit returns, i.e. allows for one-liner functions</li>
+		<li>They don't rebind the value of `this`</li>
+	</ul>
+	
+	<p>Arrow functions are <i>always</i> anonymous functions.</p>
+
+	<script>
+		const names = ['sarah', 'fred', 'bart'];
+		
+		// Oldskool function
+		const fullNames = names.map(function(name) {
+			return `${name} flintstone`;
+		});
+		
+		// Converting to Arrow function...
+		// remove function and add fat arrow =>
+		const fullNames2 = names.map((name) => {
+			return `${name} flintstone`;
+		});
+		
+		// If your function only has one parameter then you can drop the extra parenthesis
+		// names.map(name => {}) or names.map((name, i) => {})
+		const fullNames3 = names.map(name => {
+			return `${name} flintstone`;
+		});
+		
+		// Since most callback functions are one-liner we can shorten to allow for implicit return.
+		const fullNames4 = names.map(name => `${name} flintstone`);
+		
+		// If your function has no parameter you need empty parenthesis()
+		const fullNames5 = names.map(() => ` flintstone`);
+		
+		// Arrow functions are anonymous (aka "unnamed") functions.
+		// example of named function...
+		function sayMyName(name) {
+			alert(`Hello ${name}`);
+		}
+		// these ^^ are beneficial for debugging in stacktrace.
+		
+		// You CAN create an Arrow function and assign it to a variable, which is common.
+		const sayMyName2 = (name) => { alert(`Hello ${name}`) }
+		sayMyName2('Frida');
+		
+		console.log(fullNames5);
+		
+	</script>
+
+</body>
+</html>
