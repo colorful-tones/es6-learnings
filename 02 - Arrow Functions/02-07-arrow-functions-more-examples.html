@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 2 - 07 - Arrow functions More examples</title>
+</head>
+<body>
+	
+
+	<script>
+		const race = '100m Dash';
+		const winners = ['Willie Nelso', 'Wyclef Jean', 'Iggy Pop'];
+		
+		// return an object literal by wrapping the implicit return with extra set of parenthesis ()
+		const win = winners.map((winner, i) => ({ name: winner, race, place: i + 1 }));
+		
+		const ages = [84, 23, 27, 58, 43, 27, 12, 95, 43];
+		
+		const old = ages.filter(age => age >= 60);
+		console.log(old);
+		
+	</script>
+
+</body>
+</html>

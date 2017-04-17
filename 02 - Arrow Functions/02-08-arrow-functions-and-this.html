@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Module 2 - 08 - Arrow functions abd `this`</title>
+	
+	<style>
+		.wrap {
+			align-items: center;
+			color: white;
+			display: flex;
+			font-family: sans-serif;
+			font-weight: 100;
+			justify-content: center;
+			min-height: 100vh;
+		}
+		.box {
+			background: black url(https://unsplash.it/1500/1500?image=560&blur=0.5) center fixed no-repeat;
+			height: 50px;
+			padding: 50px;
+			position: relative;
+			transition: width 0.2s, height 0.6s;
+			width: 50px;
+		}
+		.box.opening {
+			height: 500px;
+			width: 500px;
+		}
+		.box h2 {
+			font-size: 90px;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			transform: translateX(-200%);
+			transition: transform 500ms ease-out, opacity 500ms ease-out;
+			width: 100%;
+		}
+		.box p {
+			bottom: 0;
+			opacity: 0;
+			position: absolute;
+			transform: translateX(200%);
+			transition: transform 500ms ease-out 200ms, opacity 500ms ease-out;
+			width: 100%;
+		}
+		.box.open > * {
+			opacity: 1.0;
+			transform: translateX(0%);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box">
+			<h2>Richard James</h2>
+			<p class="social">@windowlicker</p>
+		</div><!-- .box -->
+	</div><!-- .wrap -->
+
+	<script>
+		const box = document.querySelector('.box');
+		box.addEventListener('click', function() {
+			let first = 'opening';
+			let second = 'open';
+			
+			if(this.classList.contains(first)) {
+				[first, second] = [second, first];
+			}
+			
+			this.classList.toggle(first);
+			
+			setTimeout(() => {
+				//console.log(this);
+				this.classList.toggle(second);
+			}, 500);
+		});
+		// If we convert that to an Arrow function this is bound to the parent scope, which would be window in this case.
+		// i.e. Arrow functions do not get rebound
+		
+	</script>
+
+</body>
+</html>
