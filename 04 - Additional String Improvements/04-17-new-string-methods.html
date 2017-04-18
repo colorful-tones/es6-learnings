@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04 - 17 New String Methods</title>
+</head>
+<body>
+
+	<script>
+		// 4 new methods for strings in ES6
+		// these can help reduce relying on regex for parsing and manipulating strings
+		
+		const course = 'RFB2';
+		const flightNumber = '20-AC2018-jz';
+		const accountNumber = '825242631RT0001';
+		
+		const make = 'BMW';
+		const model = 'x5';
+		const color = 'Royal Blue';
+		
+		// .startsWith()
+		//   - case sensitive
+		course.startsWith('RFB'); // returns true.
+		flightNumber.startsWith('AC', 3); // returns true. We start at index = 3
+		
+		// .endsWith()
+		flightNumber.endsWith('js'); // returns true
+		accountNumber.endsWith('RT', 11); // use the first 11 characters
+		
+		// .includes()
+		flightNumber.includes('ac'); // returns false, because case sensitive
+		
+		// .repeat()
+		'🤘🏻'.repeat(10); // returns '🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻🤘🏻'
+		// an example of use case for .repeat() is writing a left pad function
+		function leftPad(str, length = 20) {
+			return `➡ ${' '.repeat(length - str.length)}${str}`;
+		}
+		
+		console.log(leftPad(make));
+		console.log(leftPad(model));
+		console.log(leftPad(color));
+	</script>
+</body>
+</html>
