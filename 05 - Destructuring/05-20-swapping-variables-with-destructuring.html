@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05 - 20 Swapping Variables with Destructuring</title>
+</head>
+<body>
+
+	<script>
+		// Important to use let here, because we'll be updating values.
+		let inRing = 'Hulk Hogan';
+		let onSide = 'The Rock';
+		
+		// log before the swap
+		console.log(inRing, onSide);
+		
+		// use destructuring to swap array values
+		[inRing, onSide] = [onSide, inRing];
+		
+		// log after the swap
+		console.log(inRing, onSide);
+		
+	</script>
+</body>
+</html>

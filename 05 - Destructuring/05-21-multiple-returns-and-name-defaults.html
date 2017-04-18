@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05 - 21 Multiple returns and named defaults</title>
+</head>
+<body>
+
+	<script>
+		function convertCurrency(amount) {
+			const converted = {
+				USD: amount * 0.76,
+				GPB: amount * 0.53,
+				AUD: amount * 1.01,
+				MEX: amount * 13.30
+			};
+			return converted;
+		}
+		
+		// return multiple values and pick the pieces you want returned
+		const { USD, AUD } = convertCurrency(100);
+		console.log(USD, AUD);
+		
+		// We can make this function's arguments order independent
+		// We wrap 3 arguments in destructure syntax
+		function tipCalc({ total, tip = 0.2, tax = 0.07 } = {}) {
+			return total + (tip * total) + (tax * total);
+		}
+		
+		// We can now pass in an object with arguments in any order
+		const bill = tipCalc({ tip: 0.25, total: 224});
+		console.log(bill);
+		
+	</script>
+</body>
+</html>
