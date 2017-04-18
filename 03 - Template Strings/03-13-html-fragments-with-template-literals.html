@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 - 13 Creating HTML fragments with Template Literals</title>
+</head>
+<body>
+
+	<script>
+		// Example 1
+		const person = {
+			name: 'Chevy',
+			job: 'Actor',
+			location: 'Los Angeles',
+			bio: 'Chevy is really funny actor that starred in National Lampoon\'s Family Vacation',
+		};
+		
+		const markup = `
+			<div class="person">
+				<h2>
+					${person.name}
+					<span class="job">${person.job}</span>	
+				</h2>
+				<p class="location">${person.location}</p>
+				<p class="bio">${person.bio}</p>
+			</div>
+		`;
+		
+		//document.body.innerHTML = markup;
+		
+		// Example 2: loop through with nested template string
+		const dogs = [
+			{ name: 'Snickers', age: 2 },
+			{ name: 'Fluffy', age: 8 },
+			{ name: 'Cujo', age: 1 }
+		];
+		
+		const markup2 = `
+			<ul class="dogs">
+				${dogs.map(dog => `
+					<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
+			</ul>
+		`;
+		
+		//document.body.innerHTML = markup2;
+		
+		// Example 3: using ternary operator for optional string
+		const song = {
+			name: 'Morphogene',
+			artist: 'Machinedrum',
+			featuring: 'Ruckazoid'
+		};
+		
+		const featuring = song.featuring ? `(featuring ${song.featuring})` : '';
+		
+		const markup3 = `
+			<div class="song">
+				<p>${song.name} - ${song.artist} ${featuring}</p>
+			</div>
+		`
+		
+		//document.body.innerHTML = markup3;
+		
+		// Example 4: Breaking up complex nested template strings
+		const beer = {
+			name: 'Belgian Wit',
+			brewery: 'Steam Whistle Brewery',
+			keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+		};
+		
+		function renderKeywordsList(keywords) {
+			return `
+				<ul>
+					${keywords.map(keyword => `
+						<li>${keyword}</li>`
+					).join('')}
+				</ul>
+			`
+		}
+		
+		const markup4 = `
+			<div class="beer">
+				<h2>${beer.name}</h2>
+				<p class="brewery">${beer.brewery}</p>
+				${renderKeywordsList(beer.keywords)}
+			</div>
+		`;
+		
+		document.body.innerHTML = markup4;
+	</script>
+</body>
+</html>
