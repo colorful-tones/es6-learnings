@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - 32: The ...Rest param in Functions and destructuring</title>
+</head>
+<body>
+
+	<script>
+		// Takes multiple things and packs into a single array
+		
+		// Use-case #1: function ...capture all the rest
+		// Unknown amount of arguments being passed.
+		
+		function convertCurrency( rate, ...amounts ) {
+			return amounts.map( amount => amount * rate );
+		}
+		
+		const amounts = convertCurrency( 1.54, 10, 23, 52, 1, 56 );
+		
+		console.log( amounts );
+		
+		
+		// Use-case #2: destructuring
+		
+		const runner = ['Syd Barret', 123, 5.5, 5, 3, 6, 35];
+		const [name, id, ...runs] = runner;
+		
+		console.log( name, id, runs );
+		
+		// similar example...
+		const team = ['Gary', 'Sam', 'Weezel', 'Janet', 'Zoe'];
+		const [captain, assistant, ...players] = team;
+		
+		console.log( team );
+	</script>
+</body>
+</html>

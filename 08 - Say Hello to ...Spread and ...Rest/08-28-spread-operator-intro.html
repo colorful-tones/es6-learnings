@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - 28: The ...Spread operator</title>
+</head>
+<body>
+
+	<script>
+		// Use-case #1: Take two Arrays, combine them, and add something to the middle.
+	
+		const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+		const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+		
+		// we want to combine the two above, but insert a new pizza type in middle...
+		const pizzas = [...featured, 'veg', ...specialty];
+		
+		console.log( pizzas );
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - 31: Spreading into a function</title>
+</head>
+<body>
+
+	<script>
+		// Use-case #5: Spreading into a function...
+	
+		const inventors = ['Einstein', 'Newton', 'Galileo'];
+		const newInventors = ['Musk', 'Jobs'];
+		
+		// We spread IN to the .push() function directly.
+		inventors.push( ...newInventors );
+		
+		console.log( inventors ); // ['Einstein', 'Newton', 'Galileo','Musk', 'Jobs']
+		
+		
+		// Another example...
+		
+		const name = [ 'Beck', 'Hansen' ];
+		
+		function sayHi( first, last ) {
+			alert( `Hey there ${first} ${last}` );
+		}
+		
+		sayHi( ...name );
+	</script>
+</body>
+</html>

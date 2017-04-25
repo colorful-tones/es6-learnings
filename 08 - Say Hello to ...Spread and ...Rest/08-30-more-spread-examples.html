@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - 30: More Spread examples</title>
+</head>
+<body>
+	<div class="people">
+		<p>Shannon</p>
+		<p>Kim</p>
+		<p>Ruthy</p>
+	</div>
+
+	<script>
+		// Use-case #3: 
+		// Spread operator as an alternative to Array.from()...
+		
+		// Say we start with a nodeList
+		//const people = document.querySelectorAll( '.people p' );
+		
+		// but we need an Array, so we wrap in from()...
+		const people = Array.from( document.querySelectorAll( '.people p') );
+		const names = people.map( ( person ) => person.textContent );
+		
+		// or we can spread them all into a new array...
+		//const people = [...document.querySelectorAll( '.people p')];
+		
+		// using .from() is typically preferable ^^
+		
+		console.log( names );
+		
+		
+		// Use-case #4:
+		// You want to create a new Array off of a property on an Object
+		
+		const deepDish = {
+			pizzaName: 'Deep Dish',
+			size: 'Medium',
+			ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+		};
+		
+		const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+		// this is a true copy and not a reference to the deepDish Object
+		
+		console.log( shoppingList );
+		
+		
+		// Use-case #5:
+		// You have an Array of Objects and you need to remove one of those Objects from the Array
+		
+		const comments = [
+			{ id: 209384, text: 'I lover your dog!' },
+			{ id: 523423, text: 'Cuuute! 🐕' },
+			{ id: 632249, text: 'You are so dumb!' },
+			{ id: 192834, text: 'Nice work on this Frank!' },
+		];
+		
+		const id = 632249; // We want to exclude the mean comment.
+		const commentIndex = comments.findIndex( comment => comment.id === id ); // We find the index of the mean comment.
+		
+		const newComments = [...comments.slice( 0, commentIndex ), ...comments.slice( commentIndex + 1 ) ]; // We create a new Object minus our mean comment, and voila!
+		
+		console.log( newComments );
+	</script>
+</body>
+</html>
