@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09 - 33: Object Literal Upgrades</title>
+</head>
+<body>
+
+	<script>
+		const first = 'Snickers';
+		const last = 'Jones';
+		const age = 2;
+		const breed = 'King Charles Cav';
+		
+		// Use-case #1: If object property: value name are same.
+		const dog = {
+			first, // instead of first: first,
+			last,  // instead of last: last,
+			age,   // instead of age: age,
+			breed, // instead of breed: breed,
+			pals: ['Hugo', 'Sunny']
+		};
+		
+		console.log( dog );
+		
+		
+		// Use-case #2: When you have method definitions inside of an Object.
+		
+		const modal = {
+			create() { // instead of create: function()
+			},
+			open() {  // instead of open: function()
+			},
+			close() { // instead of close: function()
+			}
+		}
+		
+		
+		// Use-case #3: Computed property names
+		
+		// Helper function to return inverted color from hex value.
+		function invertColor( color ) {
+			return '#' + ( "000000" + ( 0xFFFFFF ^ parseInt( color.substring(1), 16 ) ).toString( 16 ) ).slice( -6 );
+		}
+		
+		const key = 'pocketColor';
+		const value = '#ffc600';
+		
+		const tShirt = {
+			[key]: value,
+			[`${key}Opposite`]: invertColor( value )
+		}
+		
+		console.log( tShirt );
+		
+		
+		// Use-case #4: merging two arrays of data into Object literal
+		
+		const keys = ['size', 'color', 'weight'];
+		const values = ['medium', 'red', 100];
+		
+		const shirt = {
+			[keys.shift()]: values.shift(),
+			[keys.shift()]: values.shift(),
+			[keys.shift()]: values.shift(),
+		}
+		
+		console.log( shirt );
+	</script>
+</body>
+</html>
