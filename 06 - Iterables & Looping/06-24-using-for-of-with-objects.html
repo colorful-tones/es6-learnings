@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06 - 24 - Using for of with Objects</title>
+</head>
+<body>
+
+	<script>
+		
+		// plain Object
+		const apple = {
+			color: 'Red',
+			size: 'Medium',
+			weight: 50,
+			sugar: 10
+		};
+		
+		// You can NOT iterate over an object
+		// for ( const prop of apple ) {
+		// 	console.log( prop );
+		// }
+		
+		// what are our options...
+		
+		// coming soon in 2017 spec, and has a polyfill
+		// for ( const prop of apple.entries() ) {
+		// 	console.log( prop );
+		// }
+		
+		for ( const prop of Object.keys( apple ) ) {
+			const value = apple[prop];
+			console.log( value, prop );
+		}
+	</script>
+</body>
+</html>
