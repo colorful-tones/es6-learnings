@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07 - 27 - Array.some() and Array.every()</title>
+</head>
+<body>
+
+	<script>
+		const seniors = [32, 51, 19, 91, 21];
+		
+		// .some() and .every() are not new part of ES6, but overlooked
+		// .some()
+		
+		// Array.some() examples...
+		
+		// 👩 👱 is there at least one adult in the group?
+		const adultPresent = seniors.some( age => age >= 21 );
+		
+		console.log( adultPresent );
+		
+		
+		// Array.every() example...
+		
+		// 🍺 is everyone old enough to drink?
+		const allOldEnough = seniors.every( age => age >= 22 );
+		
+		console.log( allOldEnough );
+	</script>
+</body>
+</html>
