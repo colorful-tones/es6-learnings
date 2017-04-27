@@ -23,7 +23,7 @@ Symbol([description])
 
 ##### Code examples
 
-* [Symbols](#)
+* [Symbols](https://github.com/colorful-tones/es6-learnings/blob/master/11%20-%20Symbols/11-38-symbols.html#L10)
 
 #### Further Reading
 
