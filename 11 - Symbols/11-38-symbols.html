@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11 - 38: All about Symbols</title>
+</head>
+<body>
+
+	<script>
+		// Symbols will always be absolutely unique, which helps
+		// avoid naming collisions.
+		const blarb = Symbol('blarb');
+		const person = Symbol('blarb');
+		
+		// Our object has duplicate, non-unique data (i.e. 'Olivia').
+		const classRoom = {
+			'Mark': { grade: 50, gender: 'male' },
+			'Olivia': { grade: 82, gender: 'female' },
+			'Olivia': { grade: 82, gender: 'female' },
+		}
+		
+		// We use Symbol to make it unique.
+		const classRoomWithSymbols = {
+			[Symbol('Mark')]:   { grade: 50, gender: 'male' },
+			[Symbol('Olivia')]: { grade: 82, gender: 'female' },
+			[Symbol('Olivia')]: { grade: 82, gender: 'female' },
+		}
+		
+		// Symbols are not enumerable, i.e. we can't loop over them...
+		for(person in classRoomWithSymbols) {
+			console.log(person); // this will show nothing, because not enumerable
+		}
+		
+		
+		// If we want to get access to all the data in our symbols...
+		const syms = Object.getOwnPropertySymbols(classRoomWithSymbols);
+		// Use .map() and the symbol as property key
+		const data = syms.map(sym => classRoomWithSymbols[sym]);
+		
+		console.log(data);
+	</script>
+</body>
+</html>
