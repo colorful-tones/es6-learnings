@@ -19,9 +19,9 @@ A `Promise` is in one of these states:
 
 #### Code examples
 
-1. Instantiating a new Promise object
-2. Chaining Promises + Flow control (cascading)
-3. Working with multiple Promises
+1. [Instantiating a new Promise object](https://github.com/colorful-tones/es6-learnings/blob/master/10%20-%20Promises/10-35-building-your-own-promises.html#L10)
+2. [Chaining Promises + Flow control (cascading)](https://github.com/colorful-tones/es6-learnings/blob/master/10%20-%20Promises/10-36-chaining-promises-flow-control.html#L10)
+3. [Working with multiple Promises](https://github.com/colorful-tones/es6-learnings/blob/master/10%20-%20Promises/10-37-multiple-promises.html#L10)
 
 #### Further reading:
 * "[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)" - Mozilla Developer Network
