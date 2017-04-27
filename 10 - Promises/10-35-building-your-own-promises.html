@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10 - 35: Building your own Promises</title>
+</head>
+<body>
+
+	<script>
+		// Create a new Promise object and use setTimeout() to simulate async code
+		const p = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				reject(Error('Error message here.'));
+			}, 1000);
+		});
+		
+		p
+			.then(data => {
+				console.log(data);
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	</script>
+</body>
+</html>
